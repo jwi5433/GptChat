@@ -1,0 +1,6 @@
+@gpt_HostAddress = http://localhost:5168
+
+GET {{gpt_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
