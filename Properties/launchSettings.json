@@ -6,7 +6,7 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "CHATGPT_API_KEY": "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"
+        "CHATGPT_API_KEY": "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"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5168"
