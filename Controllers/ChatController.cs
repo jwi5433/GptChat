@@ -13,15 +13,18 @@ public class ChatController : ControllerBase
         var apiKey = configuration["CHATGPT_API_KEY"];
         _openAIApi = new OpenAIAPI(apiKey);
     }
-
     [HttpPost("message")]
-    public async Task<IActionResult> SendMessage([FromBody] string userMessage)
+    public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
     {
         var chat = _openAIApi.Chat.CreateConversation();
         chat.AppendSystemMessage("You are a witty and knowledgeable assistant. You have a slight sense of humor.");
-        chat.AppendUserInput(userMessage);
+        chat.AppendUserInput(request.UserMessage);
 
         var response = await chat.GetResponseFromChatbotAsync();
         return Ok(new { message = response });
     }
+}
+public class ChatRequest
+{
+    public string UserMessage { get; set; }
 }
